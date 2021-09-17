@@ -1,0 +1,25 @@
+.nav {
+  grid-area: n;
+  padding: 5px;
+  background-color: var(--block-bg-color);
+}
+
+.nav ul {
+  padding: 0;
+  list-style: none;
+}
+
+.nav .item {
+  text-align: left;
+}
+.nav .item a {
+  padding: 5px 0;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-color);
+}
+.nav .item a:hover {
+  color: var(--text-color-hover);
+}

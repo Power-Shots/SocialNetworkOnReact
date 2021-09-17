@@ -1,0 +1,5 @@
+.content {
+  grid-area: c;
+  background-color: var(--block-bg-color);
+  color: var(--text-color)
+}
