@@ -1,4 +1,5 @@
 import React from "react";
+import MyPosts from "./MyPosts/MyPosts";
 import s from './Profile.module.css';
 
 const Profile = () => {
@@ -8,14 +9,7 @@ const Profile = () => {
         <img src="https://cdn.pixabay.com/photo/2016/05/05/02/37/sunset-1373171__340.jpg" />
       </div>
       <div>ava + description</div>
-      <div>
-        my posts
-        <div>new post</div>
-        <div>
-          <div className="item">post 1</div>
-          <div className="item">post 2</div>
-        </div>
-      </div>
+      <MyPosts/>
     </div>
   );
 };
