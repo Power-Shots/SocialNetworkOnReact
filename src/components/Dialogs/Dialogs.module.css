@@ -7,12 +7,14 @@
   padding: 10px;
 }
 
-.dialogsItems .dialog {
+.dialogsItems .dialog a {
   margin: 10px 0;
+  text-decoration: none;
+  color: var(--text-color);
   cursor: pointer;
 }
 
-.dialogsItems .dialog.activeDialog {
+.dialogsItems .dialog.activeDialog a {
   color: var(--accent-color)
 }
 
