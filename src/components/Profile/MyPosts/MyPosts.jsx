@@ -1,23 +1,27 @@
-import React from 'react';
-import s from './MyPosts.module.css';
-import Post from './Post/Post';
+import React from "react";
+import s from "./MyPosts.module.css";
+import Post from "./Post/Post";
 
 const MyPosts = () => {
-    return (
+  return (
+    <div className={s.postsBlock}>
+      <h3>My Posts</h3>
+
+      <div>
         <div>
-        My Posts
-        <div>New post</div>
-        <div>
-            <textarea></textarea>
-            <button>add post</button>
-            <button>Remove post</button>
+          <textarea></textarea>
         </div>
         <div>
-            <Post message={`Hi, how are you?`}/>
-            <Post message={`It's my first post`}/>
+          <button>add post</button>
+          <button>Remove post</button>
         </div>
       </div>
-    )
-}
+      <div className={s.posts}>
+        <Post message={`Hi, how are you?`} />
+        <Post message={`It's my first post`} />
+      </div>
+    </div>
+  );
+};
 
-export default MyPosts
+export default MyPosts;
