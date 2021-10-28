@@ -19,7 +19,7 @@ const Message = (props) => {
 
 
 const Dialogs = (props) => {
-  const dialogsData = [
+  const dialogs = [
     {
       id: 1,
       name: 'Vasya'
@@ -33,7 +33,7 @@ const Dialogs = (props) => {
       name: 'Vadim'
     },
   ] 
-  const messagesData = [
+  const messages = [
     {
       id: 1,
       text: 'Hi'
@@ -51,12 +51,12 @@ const Dialogs = (props) => {
   return (
     <div className={s.dialogs}>
       <div className={s.dialogsItems}>
-        {dialogsData.map(dialog => 
+        {dialogs.map(dialog => 
             <DialogItem name={dialog.name} id={dialog.id}/>
           )}
       </div>
       <div className={s.messages}>
-        {messagesData.map(message => 
+        {messages.map(message => 
           <Message message={message.text} id={message.id}/> 
         )}
       </div>
