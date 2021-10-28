@@ -1,0 +1,10 @@
+.dialog a {
+  margin: 10px 0;
+  text-decoration: none;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.dialog.activeDialog a {
+  color: var(--accent-color)
+}
