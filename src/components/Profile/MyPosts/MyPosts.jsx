@@ -1,8 +1,15 @@
-import React from "react";
+import React, { createRef, useRef } from "react";
 import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
 const MyPosts = ({posts}) => {
+
+  const newPostElement = createRef()
+
+  const addPost = () => {
+    let text = newPostElement.current.value;
+    alert(text)
+  }
     
 
   return (
@@ -11,11 +18,10 @@ const MyPosts = ({posts}) => {
 
       <div>
         <div>
-          <textarea></textarea>
+          <textarea ref={newPostElement}></textarea>
         </div>
         <div>
-          <button>add post</button>
-          <button>Remove post</button>
+          <button onClick={addPost}>add post</button>
         </div>
       </div>
       <div className={s.posts}>
