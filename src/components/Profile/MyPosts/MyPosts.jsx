@@ -1,15 +1,16 @@
 import React, { createRef, useRef } from "react";
+import rerenderEntireTree from "../../../render";
 import s from "./MyPosts.module.css";
-import {addPost} from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
-const MyPosts = ({posts}, props) => {
+const MyPosts = (props) => {
 
   const newPostElement = createRef()
 
   const addPost = () => {
     let text = newPostElement.current.value;
     props.addPost(text)
+    newPostElement.current.value = ''
   }
     
 
@@ -26,7 +27,7 @@ const MyPosts = ({posts}, props) => {
         </div>
       </div>
       <div className={s.posts}>
-        {posts.map(post => 
+        {props.posts.map(post => 
             <Post message={post.message} id={post.id} likesCount={post.likesCount}/>    
         )}
       </div>
