@@ -15,7 +15,8 @@ function App(props) {
       <main className="app-wrapper-content">
         <Route
           path="/profile"
-          render={() => <Profile state={props.state.profilePage}
+          render={() => <Profile profilePage={props.state.profilePage}
+          updateNewPostText={props.updateNewPostText}
           addPost={props.addPost} />}
         />
         <Route
