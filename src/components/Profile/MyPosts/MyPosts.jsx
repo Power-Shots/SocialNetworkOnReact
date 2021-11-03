@@ -1,14 +1,15 @@
 import React, { createRef, useRef } from "react";
 import s from "./MyPosts.module.css";
+import {addPost} from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
-const MyPosts = ({posts}) => {
+const MyPosts = ({posts}, props) => {
 
   const newPostElement = createRef()
 
   const addPost = () => {
     let text = newPostElement.current.value;
-    alert(text)
+    props.addPost(text)
   }
     
 

@@ -47,4 +47,14 @@ const state = {
   }, 
 };
 
+export const addPost = (postMessage) => {
+  let newPost = {
+    id: Date.now(),
+    message: postMessage,
+    likesCount: 0,
+  };
+
+  state.profilePage.posts = [newPost, ...state.profilePage.posts];
+}
+
 export default state
