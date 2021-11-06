@@ -1,5 +1,4 @@
 import React, { createRef, useRef } from "react";
-import rerenderEntireTree from "../../../render";
 import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
