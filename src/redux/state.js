@@ -1,75 +1,82 @@
-let rerenderEntireTree = (state) => console.log('state changed')
-
-let state = {
-  profilePage: {
-    posts: [
-      {
-        id: 1,
-        message: `Hi, how are you?`,
-        likesCount: 42,
-      },
-      {
-        id: 2,
-        message: `It's my first post`,
-        likesCount: 12,
-      },
-    ],
-    newPostText: 'it-kamasutra',
+const store = {
+  _state: {
+    profilePage: {
+      posts: [
+        {
+          id: 1,
+          message: `Hi, how are you?`,
+          likesCount: 42,
+        },
+        {
+          id: 2,
+          message: `It's my first post`,
+          likesCount: 12,
+        },
+      ],
+      newPostText: 'it-kamasutra',
+    },
+    dialogsPage: {
+      messages: [
+        {
+          id: 1,
+          text: "Hi",
+        },
+        {
+          id: 2,
+          text: "How are you?",
+        },
+        {
+          id: 3,
+          text: "Good bye",
+        },
+      ],
+      dialogs: [
+        {
+          id: 1,
+          name: "Vasya",
+        },
+        {
+          id: 2,
+          name: "Elena",
+        },
+        {
+          id: 3,
+          name: "Vadim",
+        },
+      ],
+    }, 
   },
-  dialogsPage: {
-    messages: [
-      {
-        id: 1,
-        text: "Hi",
-      },
-      {
-        id: 2,
-        text: "How are you?",
-      },
-      {
-        id: 3,
-        text: "Good bye",
-      },
-    ],
-    dialogs: [
-      {
-        id: 1,
-        name: "Vasya",
-      },
-      {
-        id: 2,
-        name: "Elena",
-      },
-      {
-        id: 3,
-        name: "Vadim",
-      },
-    ],
-  }, 
-};
 
-window.state = state
+  getState(){
+    return this._state
+  },
 
-export const addPost = () => {
-  let newPost = {
-    id: Date.now(),
-    message: state.profilePage.newPostText,
-    likesCount: 0,
-  };
+  _callSubscriber(state) {
+    console.log('state changed')
+  },
+  
+  addPost() {
+    let newPost = {
+      id: Date.now(),
+      message: this._state.profilePage.newPostText,
+      likesCount: 0,
+    };
+  
+    this._state.profilePage.posts = [newPost, ...this._state.profilePage.posts];
+    this._state.profilePage.newPostText = '';
+    this._callSubscriber(this._state);
+  },
 
-  state.profilePage.posts = [newPost, ...state.profilePage.posts];
-  state.profilePage.newPostText = '';
-  rerenderEntireTree(state);
+  updateNewPostText(newText) {
+    this._state.profilePage.newPostText = newText
+    this._callSubscriber(this._state)
+  },
+
+  subscribe(observer) {
+    this._callSubscriber = observer
+  }
 }
 
 
-export const updateNewPostText = (newText) => {
-  state.profilePage.newPostText = newText
-  rerenderEntireTree(state)
-}
-
-export const subscribe = (observer) => {
-  rerenderEntireTree = observer
-}
-
-export default state
+export default store;
+window.store = store;
