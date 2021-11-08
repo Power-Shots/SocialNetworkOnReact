@@ -1,18 +1,20 @@
 import React, { createRef, useRef } from "react";
+import { addPostActionCreator, updateNewPostTextActionCreator } from "../../../redux/state";
 import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
+
 
 const MyPosts = (props) => {
 
   const newPostElement = createRef()
 
   const addPost = () => {
-    props.dispatch({type: 'ADD_POST'})
+    props.dispatch(addPostActionCreator())
   }
     
   const onPostChange = () => {
     let text = newPostElement.current.value;
-    props.dispatch({type: 'UPDATE_NEW_POST_TEXT', newText: text})
+    props.dispatch(updateNewPostTextActionCreator(text))
   }
 
   return (
@@ -29,7 +31,9 @@ const MyPosts = (props) => {
       </div>
       <div className={s.posts}>
         {props.posts.map(post => 
-            <Post message={post.message} id={post.id} likesCount={post.likesCount}/>    
+            <Post message={post.message}
+                  id={post.id} 
+                  likesCount={post.likesCount}/>    
         )}
       </div>
     </div>
