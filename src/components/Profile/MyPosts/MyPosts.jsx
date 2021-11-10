@@ -1,5 +1,6 @@
 import React, { createRef, useRef } from "react";
-import { addPostActionCreator, updateNewPostTextActionCreator } from "../../../redux/state";
+import { addPostActionCreator, updateNewPostTextActionCreator } from "../../../redux/profileReducer";
+
 import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
