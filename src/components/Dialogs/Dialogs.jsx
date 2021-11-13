@@ -7,32 +7,31 @@ import Message from './Message/Message';
 
 
 const Dialogs = (props) => {
-  
-  const newMessageBody = props.state.newMessageBody;
+  const state = props.dialogsPage
+  const newMessageBody = state.newMessageBody;
   console.log(newMessageBody)
 
   
   
   const onNewMessageChange = (e) => {
-    console.log(e.target.value)
     let body = e.target.value
-    props.dispatch(updateNewMessageBodyCreator(body))
+    props.updateNewMessageBody(body)
   }
 
   const onSendMessageClick = () => {
-    props.dispatch(sendMessageCreator())
+    props.sendMessage()
   }
 
   return (
     <div className={s.dialogs}>
       <div className={s.dialogsItems}>
-        {props.state.dialogs.map(dialog => 
+        {state.dialogs.map(dialog => 
             <DialogItem name={dialog.name} id={dialog.id}/>
           )}
       </div>
       <div className={s.messages}>
         <div className={s.messageWrapper}>
-          {props.state.messages.map(message => 
+          {state.messages.map(message => 
             <Message message={message.message} id={message.id}/> 
           )}
         </div>
