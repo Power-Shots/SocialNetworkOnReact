@@ -1,6 +1,5 @@
 import React from "react";
-import { Route } from "react-router-dom";
-import { BrowserRouter } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import "./App.css";
 import Dialogs from "./components/Dialogs/Dialogs";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
@@ -16,12 +15,14 @@ function App(props) {
       <main className="app-wrapper-content">
         <Route
           path="/profile"
-          render={() => <Profile store={props.store}/>}
+          render={() => <Profile/>}
         />
         <Route
           path="/dialogs"
-          render={() => <DialogsContainer store={props.store}/>}
+          render={() => <DialogsContainer/>}
         />
+
+        <Redirect from='**' to="/profile"/>
       </main>
     </div>
   );
