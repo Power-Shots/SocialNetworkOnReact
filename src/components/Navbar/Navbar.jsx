@@ -7,19 +7,22 @@ const Navbar = () => {
     <nav className={s.nav}>
       <ul>
         <li className={s.item}>
-          <NavLink to="/profile">Profile</NavLink>
+          <NavLink to="/profile" activeClassName={s.active}>Profile</NavLink>
         </li>
         <li className={s.item}>
-          <NavLink to="/dialogs">Messages</NavLink>
+          <NavLink to="/dialogs" activeClassName={s.active}>Messages</NavLink>
         </li>
         <li className={s.item}>
-          <NavLink to="/news">News</NavLink>
+          <NavLink to="/users" activeClassName={s.active}>Users</NavLink>
         </li>
         <li className={s.item}>
-          <NavLink to="/music">Music</NavLink>
+          <NavLink to="/news" activeClassName={s.active}>News</NavLink>
         </li>
         <li className={s.item}>
-          <NavLink to="/settings">Settings</NavLink>
+          <NavLink to="/music" activeClassName={s.active}>Music</NavLink>
+        </li>
+        <li className={s.item}>
+          <NavLink to="/settings" activeClassName={s.active}>Settings</NavLink>
         </li>
       </ul>
     </nav>

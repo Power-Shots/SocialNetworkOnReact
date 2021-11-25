@@ -16,6 +16,8 @@
   grid-area: c;
   background-color: var(--block-bg-color);
   color: var(--text-color);
+  border-radius: 1rem;
+  overflow: hidden;
 }
 
 

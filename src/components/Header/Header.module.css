@@ -1,5 +1,7 @@
 .header {
   grid-area: h;
+  border-radius: 1rem;
+  padding: 5px 10px;
   background-color: var(--block-bg-color);
 }
 

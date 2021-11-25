@@ -1,6 +1,9 @@
+
+
 .nav {
   grid-area: n;
   padding: 5px;
+  border-radius: 1rem;
   background-color: var(--block-bg-color);
 }
 
@@ -22,4 +25,8 @@
 }
 .nav .item a:hover {
   color: var(--text-color-hover);
+}
+
+.nav .item a.active {
+  color: var(--accent-color);
 }
