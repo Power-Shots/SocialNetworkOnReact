@@ -5,10 +5,10 @@ import s from './Users.module.css'
 
 export class Users extends Component {
 
-  constructor(props) {
-    super(props)
+  componentDidMount() {
     this.getUsers()
   }
+
 
   getUsers = () => {
     if(this.props.users.length === 0) {
