@@ -1,44 +1,14 @@
 export const FOLLOW = 'FOLLOW';
 export const UNFOLLOW = 'UNFOLLOW';
-export const SET_USERS = 'SET_USERS'
+export const SET_USERS = 'SET_USERS';
+export const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
+export const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT'
 
 const initialState = {
-  users: [
-    // {
-    //   id: 1,
-    //   fullname: 'Dmitriy K.',
-    //   photoUrl: 'https://www.tadviser.ru/images/thumb/a/aa/Elon-musk-850.jpg/840px-Elon-musk-850.jpg',
-    //   status: 'Bla Bla',
-    //   location: {
-    //     country: 'Belarus',
-    //     city: 'Minsk'
-    //   },
-    //   followed: false, 
-    // },
-    // {
-    //   id: 2,
-    //   fullname: 'Elena Z.',
-    //   photoUrl: 'https://www.tadviser.ru/images/thumb/a/aa/Elon-musk-850.jpg/840px-Elon-musk-850.jpg',
-    //   status: 'Haha',
-    //   location: {
-    //     country: 'Ukraine',
-    //     city: 'Kiev'
-    //   },
-    //   followed: false, 
-    // },
-    // {
-    //   id: 3,
-    //   fullname: 'Mihail G.',
-    //   photoUrl: 'https://www.tadviser.ru/images/thumb/a/aa/Elon-musk-850.jpg/840px-Elon-musk-850.jpg',
-    //   status: 'I love sweets',
-    //   location: {
-    //     country: 'Russia',
-    //     city: 'Moslow'
-    //   },
-    //   followed: true, 
-    // },
-  ],
-  limit: 4,
+  users: [ ],
+  pageSize: 10,
+  totalUsersCount: 0,
+  currentPage: 1,
   loading: false
 }
 
@@ -64,7 +34,13 @@ export const usersReducer = (state = initialState, action) => {
       })};
     
     case SET_USERS:
-      return {...state, users: [...state.users, ...action.users]}
+      return {...state, users: [...action.users]}
+    case SET_CURRENT_PAGE: 
+      return {...state, currentPage: action.currentPage}
+
+    case SET_TOTAL_USERS_COUNT: {
+      return {...state, totalUsersCount: action.totalCount}
+    }
     
     default: return state
   }
@@ -86,4 +62,13 @@ export const unfollowAC = (userID) => ({
 export const setUsersAC = (users) => ({
   type: SET_USERS,
   users: users
+})
+
+export const setCurrentPageAC = (currentPage) => ({
+  type: SET_CURRENT_PAGE,
+  currentPage: currentPage
+})
+export const setUsersTotalCountAC = (totalCount) => ({
+  type: SET_TOTAL_USERS_COUNT,
+  totalCount: totalCount
 })

@@ -1,5 +1,5 @@
 .content {
-  padding: 0 10px;
+  padding: 10px;
 }
 
 
@@ -16,3 +16,38 @@
   height: 100%;
   object-fit: cover;
 }
+
+.paginationBlock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.paginationBlock .selectPage {
+  width: 30px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5px;
+  color: var(--text-color);
+  background-color: var(--btn-bg-disabled);
+  border-radius: 0.4rem;
+  border: 1px solid var(--btn-border-color);
+  cursor: pointer;
+}
+
+.paginationBlock .selectPage:hover {
+  background-color: var(--btn-bg-hover);
+  color: var(--text-color-hover)
+}
+
+.paginationBlock .selectPage.active {
+  background-color: var(--btn-bg-active);
+  color: var(--text-color-dark);
+}
+
+
+
+
+

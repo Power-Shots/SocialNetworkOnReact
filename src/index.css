@@ -3,7 +3,13 @@
   --block-bg-color: rgb(53, 53, 53);
   --text-color: #e4e4e4;
   --text-color-hover: #ffffff;
+  --text-color-dark: #111111;
   --accent-color: #B3FF2B;
+  --btn-bg-disabled: #4d4d4d;
+  --btn-bg-hover: #717171;
+  --btn-bg-active: #ffffff;
+  --btn-border-color: #ffffff;
+
 }
 
 *{
