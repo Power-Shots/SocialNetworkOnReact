@@ -24,7 +24,10 @@
 }
 
 .paginationBlock .selectPage {
-  width: 30px;
+  min-width: 30px;
+  width: auto;
+  box-sizing: content-box;
+  padding: 0 10px;
   height: 25px;
   display: flex;
   justify-content: center;

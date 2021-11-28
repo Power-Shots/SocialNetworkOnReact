@@ -6,7 +6,7 @@ export const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT'
 
 const initialState = {
   users: [ ],
-  pageSize: 10,
+  pageSize: 20,
   totalUsersCount: 0,
   currentPage: 1,
   loading: false
