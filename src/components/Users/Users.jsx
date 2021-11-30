@@ -1,5 +1,5 @@
  import React from 'react';
- import userPhotoPNG from '../../assets/userPhoto/userPhoto 256px.png'
+ import userPhotoPNG from '../../assets/images/userPhoto/userPhoto 256px.png'
  import s from './Users.module.css'
  
  const Users = (props) => {
