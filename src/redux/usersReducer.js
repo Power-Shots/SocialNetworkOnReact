@@ -1,15 +1,15 @@
-export const FOLLOW = 'FOLLOW';
-export const UNFOLLOW = 'UNFOLLOW';
-export const SET_USERS = 'SET_USERS';
-export const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
-export const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
-export const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
+const FOLLOW = 'FOLLOW';
+const UNFOLLOW = 'UNFOLLOW';
+const SET_USERS = 'SET_USERS';
+const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
+const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
+const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 
 const initialState = {
   users: [ ],
-  pageSize: 20,
+  pageSize: 10,
   totalUsersCount: 0,
-  currentPage: 1,
+  currentPage: 50,
   isFetching: false
 }
 

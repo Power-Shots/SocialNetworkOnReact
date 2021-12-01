@@ -1,4 +1,5 @@
  import React from 'react';
+import { NavLink } from 'react-router-dom';
  import userPhotoPNG from '../../assets/images/userPhoto/userPhoto 256px.png'
  import s from './Users.module.css'
  
@@ -10,6 +11,7 @@
   for(let i = 1; i<=pagesCount; i++){
     pages = [...pages, i]
   }
+
 
 
 
@@ -25,7 +27,11 @@
     <div key={u.id} >
       <span>
         <div className={s.userPhotoBlock}>
-          <img src={u.photos.small !== null ? u.photos.small : userPhotoPNG } className={s.userPhoto} alt={`${u.fullname} photo`} />
+          <NavLink to={`/profile/${u.id}`}>
+            <img src={u.photos.small !== null ? u.photos.small : userPhotoPNG } 
+                className={s.userPhoto} alt={`${u.fullname} photo`} />
+          </NavLink>
+          
         </div>
         <div>
           {u.followed

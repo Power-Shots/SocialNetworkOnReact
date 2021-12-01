@@ -1,9 +1,7 @@
 import React, {Component} from "react";
 import { connect } from "react-redux";
 import { follow, setCurrentPage, setTotalUsersCount, setUsers, unfollow, toggleIsFetching } from "../../redux/usersReducer";
-import s from './Users.module.css'
 import * as axios from 'axios';
-import preloaderSVG from './../../assets/images/preloader/Double Ring-2.6s-200px.svg'
 import Users from "./Users";
 import Preloader from "../common/Preloader/Preloader";
 
