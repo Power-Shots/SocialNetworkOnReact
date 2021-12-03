@@ -14,7 +14,7 @@ function App(props) {
       <Navbar />
       <main className="app-wrapper-content">
         <Route
-          path="/profile"
+          path="/profile/:id?"
           render={() => <ProfileContainer/>}
         />
         <Route
