@@ -1,10 +1,45 @@
 .header {
   grid-area: h;
   border-radius: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 5px 10px;
   background-color: var(--block-bg-color);
 }
 
 .header img {
   height: 100%;
+}
+
+
+.header .loginBlock {
+  margin-right: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header .loginBlock a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--btn-bg-disabled);
+  color: var(--text-color);
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 1rem;
+  border: 1px solid transparent;
+}
+
+.header .loginBlock a:hover {
+  background-color: var(--btn-bg-hover);
+  color: var(--text-color-hover);
+}
+
+.header .loginBlock h3 {
+  color: var(--text-color);
+  font-size: 25px;
+  font-weight: bold;
 }

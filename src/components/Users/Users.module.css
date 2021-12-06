@@ -44,12 +44,13 @@
 
 .paginationBlock .selectPage:hover {
   background-color: var(--btn-bg-hover);
-  color: var(--text-color-hover)
+  color: var(--text-color-hover);
+  border: 1px solid var(--accent-color);
 }
 
 .paginationBlock .selectPage.active {
-  background-color: var(--btn-bg-active);
-  color: var(--text-color-dark);
+  color: var(--text-color-hover);
+  border: 1px solid var(--accent-color);
 }
 
 
