@@ -1,4 +1,5 @@
- import React from 'react';
+ import axios from 'axios';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
  import userPhotoPNG from '../../assets/images/userPhoto/userPhoto 256px.png'
  import s from './Users.module.css'
@@ -10,6 +11,38 @@ import { NavLink } from 'react-router-dom';
 
   for(let i = 1; i<=pagesCount; i++){
     pages = [...pages, i]
+  }
+
+  const subscription = (type, userId) => {
+    let url = 'https://social-network.samuraijs.com/api/1.0/follow/'
+    if(type === 'follow'){
+      axios.post(`${url}${userId}`, {}, {
+        withCredentials: true,
+        headers: {
+          "API-KEY": "b9fb0702-2656-4896-ae52-dd305305c241",
+        }
+      })
+        .then(response =>  {
+          if(response.data.resultCode === 0){
+            props.follow(userId)
+          }
+        })
+    } else if (type === 'unfollow') {
+      axios.delete(`${url}${userId}`, {
+        withCredentials: true,
+        headers: {
+          "API-KEY": "b9fb0702-2656-4896-ae52-dd305305c241",
+        }
+      })
+        .then(response =>  {
+          if(response.data.resultCode === 0){
+            props.unfollow(userId)
+          }
+        })
+      
+    }
+
+    
   }
 
 
@@ -35,8 +68,8 @@ import { NavLink } from 'react-router-dom';
         </div>
         <div>
           {u.followed
-          ?<button onClick={()=> props.unfollow(u.id)}>Unfollow</button>
-          :<button onClick={()=> props.follow(u.id)}>Follow</button>
+          ?<button onClick={()=> subscription('unfollow', u.id)}>Unfollow</button>
+          :<button onClick={()=> subscription('follow', u.id)}>Follow</button>
           }
           
         </div>

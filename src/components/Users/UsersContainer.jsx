@@ -9,7 +9,9 @@ export class UsersContainer extends Component {
 
   componentDidMount() {
     this.props.toggleIsFetching(true)
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
+    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`, {
+      withCredentials: true
+    })
         .then(response =>  {
           this.props.setUsers(response.data.items)
           this.props.setTotalUsersCount(response.data.totalCount)
@@ -19,7 +21,12 @@ export class UsersContainer extends Component {
 
 
   getUsers = (pageNumber = this.props.currentPage) => {
-      axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`)
+      axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`, {
+        withCredentials: true,
+        headers : {
+          "API-KEY": "b9fb0702-2656-4896-ae52-dd305305c241",
+        }
+        })
         .then(response => {
           this.props.setUsers(response.data.items)
           this.props.toggleIsFetching(false)
@@ -74,5 +81,5 @@ export default connect(mapStateToProps, {
 })(UsersContainer);
 
 
-// export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
+
 
