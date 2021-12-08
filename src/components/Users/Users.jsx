@@ -1,6 +1,7 @@
  import axios from 'axios';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { followAPI } from '../../api/api';
  import userPhotoPNG from '../../assets/images/userPhoto/userPhoto 256px.png'
  import s from './Users.module.css'
  
@@ -14,35 +15,20 @@ import { NavLink } from 'react-router-dom';
   }
 
   const subscription = (type, userId) => {
-    let url = 'https://social-network.samuraijs.com/api/1.0/follow/'
     if(type === 'follow'){
-      axios.post(`${url}${userId}`, {}, {
-        withCredentials: true,
-        headers: {
-          "API-KEY": "b9fb0702-2656-4896-ae52-dd305305c241",
+      followAPI.followUser(userId).then(resultCode =>  {
+        if(resultCode === 0){
+          props.follow(userId)
         }
       })
-        .then(response =>  {
-          if(response.data.resultCode === 0){
-            props.follow(userId)
-          }
-        })
-    } else if (type === 'unfollow') {
-      axios.delete(`${url}${userId}`, {
-        withCredentials: true,
-        headers: {
-          "API-KEY": "b9fb0702-2656-4896-ae52-dd305305c241",
+    } 
+    else if (type === 'unfollow') {
+      followAPI.unfollowUser(userId).then(resultCode =>  {
+        if(resultCode === 0){
+          props.unfollow(userId)
         }
       })
-        .then(response =>  {
-          if(response.data.resultCode === 0){
-            props.unfollow(userId)
-          }
-        })
-      
-    }
-
-    
+    } 
   }
 
 
@@ -57,7 +43,7 @@ import { NavLink } from 'react-router-dom';
       )}
     </div>
   {props.users.map(u => 
-    <div key={u.id} >
+    <div key={u.id}>
       <span>
         <div className={s.userPhotoBlock}>
           <NavLink to={`/profile/${u.id}`}>
