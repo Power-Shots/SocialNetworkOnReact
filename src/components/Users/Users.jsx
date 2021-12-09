@@ -6,6 +6,7 @@ import { followAPI } from '../../api/api';
  import s from './Users.module.css'
  
  const Users = (props) => {
+   console.log(props)
 
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
   let pages = []
@@ -16,17 +17,21 @@ import { followAPI } from '../../api/api';
 
   const subscription = (type, userId) => {
     if(type === 'follow'){
+      props.toggleFollowingProgress(true, userId)
       followAPI.followUser(userId).then(resultCode =>  {
         if(resultCode === 0){
           props.follow(userId)
         }
+        props.toggleFollowingProgress(false, userId)
       })
     } 
     else if (type === 'unfollow') {
+      props.toggleFollowingProgress(true, userId)
       followAPI.unfollowUser(userId).then(resultCode =>  {
         if(resultCode === 0){
           props.unfollow(userId)
         }
+        props.toggleFollowingProgress(false, userId)
       })
     } 
   }
@@ -54,8 +59,8 @@ import { followAPI } from '../../api/api';
         </div>
         <div>
           {u.followed
-          ?<button onClick={()=> subscription('unfollow', u.id)}>Unfollow</button>
-          :<button onClick={()=> subscription('follow', u.id)}>Follow</button>
+          ?<button onClick={()=> subscription('unfollow', u.id)} disabled={props.followingInProgress.some(id => id === u.id)}>Unfollow</button>
+          :<button onClick={()=> subscription('follow', u.id)} disabled={props.followingInProgress.some(id => id === u.id)}>Follow</button>
           }
           
         </div>

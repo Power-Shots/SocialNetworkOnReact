@@ -18,22 +18,10 @@ export const usersAPI = {
 
 export const followAPI = {
   followUser(userId) {
-    return instanceUsers.post(`follow/${userId}`).then(response => response.data.resultCode)
+    return instanceUsers.post(`follow/${userId}`, {}).then(response => response.data.resultCode)
   },
   unfollowUser(userId) {
-    return instanceUsers.delete(`follow/${userId}`).then(response => response.data.resultCode)
+    return instanceUsers.delete(`follow/${userId}`, {}).then(response => response.data.resultCode)
   }
 }
 
-// export const getUsers = (currentPage = 1, pageSize = 25) => {
-//   return instanceUsers.get(`users?page=${currentPage}&count=${pageSize}`).then(response => response.data)
-// }
-
-
-// export const followUser = (userId) => {
-//   return instanceUsers.post(`follow/${userId}`).then(response => response.data.resultCode)
-// }
-
-// export const unfollowUser = (userId) => {
-//   return instanceUsers.delete(`follow/${userId}`).then(response => response.data.resultCode)
-// }
