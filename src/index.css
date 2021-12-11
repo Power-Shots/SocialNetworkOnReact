@@ -7,15 +7,16 @@
   --text-color-hover: #ffffff;
   --text-color-dark: #888888;
   --accent-color: #B3FF2B;
-  --btn-bg-disabled: #4d4d4d;
+  --btn-bg: #4d4d4d;
   --btn-bg-hover: #717171;
   --btn-bg-active: #ffffff;
+  --btn-bg-disabled: #414141;
   --btn-border-color: #ffffff;
 
   /* font-size */
   --large-text: 30px;
   --navbar-link: 20px;
-  --normal-text: 18px;
+  --normal-text: 16px;
   --headers-text: 40px;
   --small-text: 14px;
 }

@@ -1,7 +1,7 @@
  import axios from 'axios';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { followAPI } from '../../api/api';
+import { usersAPI } from '../../api/api';
  import userPhotoPNG from '../../assets/images/userPhoto/userPhoto 256px.png'
  import s from './Users.module.css'
  
@@ -17,22 +17,10 @@ import { followAPI } from '../../api/api';
 
   const subscription = (type, userId) => {
     if(type === 'follow'){
-      props.toggleFollowingProgress(true, userId)
-      followAPI.followUser(userId).then(resultCode =>  {
-        if(resultCode === 0){
-          props.follow(userId)
-        }
-        props.toggleFollowingProgress(false, userId)
-      })
+      props.follow(userId)
     } 
     else if (type === 'unfollow') {
-      props.toggleFollowingProgress(true, userId)
-      followAPI.unfollowUser(userId).then(resultCode =>  {
-        if(resultCode === 0){
-          props.unfollow(userId)
-        }
-        props.toggleFollowingProgress(false, userId)
-      })
+      props.unfollow(userId)
     } 
   }
 
@@ -59,8 +47,8 @@ import { followAPI } from '../../api/api';
         </div>
         <div>
           {u.followed
-          ?<button onClick={()=> subscription('unfollow', u.id)} disabled={props.followingInProgress.some(id => id === u.id)}>Unfollow</button>
-          :<button onClick={()=> subscription('follow', u.id)} disabled={props.followingInProgress.some(id => id === u.id)}>Follow</button>
+          ?<button className={s.followBtn + ' ' + s.followed} onClick={()=> subscription('unfollow', u.id)} disabled={props.followingInProgress.some(id => id === u.id)}>Unfollow</button>
+          :<button className={s.followBtn} onClick={()=> subscription('follow', u.id)} disabled={props.followingInProgress.some(id => id === u.id)}>Follow</button>
           }
           
         </div>

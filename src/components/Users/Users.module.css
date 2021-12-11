@@ -36,7 +36,7 @@
   align-items: center;
   margin: 0 5px;
   color: var(--text-color);
-  background-color: var(--btn-bg-disabled);
+  background-color: var(--btn-bg);
   border-radius: 0.4rem;
   border: 1px solid var(--btn-border-color);
   cursor: pointer;
@@ -48,11 +48,41 @@
   border: 1px solid var(--accent-color);
 }
 
+.paginationBlock .selectPage:disabled {
+  color: var(--text-color-dark);
+  background-color: var(--btn-bg-disabled);
+}
+
 .paginationBlock .selectPage.active {
   color: var(--text-color-hover);
   border: 1px solid var(--accent-color);
 }
 
+
+.followBtn {
+  width: fit-content;
+  padding: 5px 10px;
+  color: var(--text-color);
+  font-size: 16px;
+  background-color: var(--btn-bg);
+  border: 1px solid var(--btn-border-color);
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.followBtn:hover {
+  color: var(--text-color-hover);
+  background-color: var(--btn-bg-hover);
+}
+
+.followBtn:disabled {
+  color: var(--text-color-dark);
+  background-color: var(--btn-bg-disabled);
+}
+
+.followBtn.followed {
+  border: 1px solid var(--accent-color);
+}
 
 
 
