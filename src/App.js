@@ -3,6 +3,7 @@ import { Route, Redirect } from "react-router-dom";
 import "./App.css";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
+import Login from "./components/Login/Login";
 import Navbar from "./components/Navbar/Navbar";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import UsersContainer from "./components/Users/UsersContainer";
@@ -25,6 +26,11 @@ function App(props) {
         <Route
           path="/users" 
           render={() => <UsersContainer/>}
+        />
+
+        <Route
+          path="/login" 
+          render={() => <Login/>}
         />
 
         {/* <Redirect from='**' to="/profile"/> */}

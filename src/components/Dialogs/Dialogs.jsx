@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 import { sendMessageCreator, updateNewMessageBodyCreator } from '../../redux/dialogsReducer';
 
 import DialogItem from './DialogItem/DialogItem';
@@ -20,6 +21,10 @@ const Dialogs = (props) => {
 
   const onSendMessageClick = () => {
     props.sendMessage()
+  }
+
+  if(!props.isAuth) {
+    return <Redirect from='/dialogs' to="/login"/>
   }
 
   return (
