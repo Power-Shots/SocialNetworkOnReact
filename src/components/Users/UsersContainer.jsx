@@ -4,6 +4,7 @@ import { follow, setCurrentPage, unfollow, toggleFollowingProgress, getUsers } f
 import * as axios from 'axios';
 import Users from "./Users";
 import Preloader from "../common/Preloader/Preloader";
+import WithAuthRedirect from "../../hoc/WithAuthRedirect";
 
 export class UsersContainer extends Component {
 
@@ -50,13 +51,15 @@ const mapStateToProps = (state) => ({
   followingInProgress: state.usersPage.followingInProgress
 });
 
+let AuthRedirectComponent = WithAuthRedirect(UsersContainer)
+
 export default connect(mapStateToProps, {
   follow,
   unfollow,
   setCurrentPage,
   toggleFollowingProgress,
   getUsers,
-})(UsersContainer);
+})(AuthRedirectComponent);
 
 
 
