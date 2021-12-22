@@ -52,15 +52,6 @@ const mapStateToProps = (state) => ({
   followingInProgress: state.usersPage.followingInProgress
 });
 
-let AuthRedirectComponent = WithAuthRedirect(UsersContainer)
-
- connect(mapStateToProps, {
-  follow,
-  unfollow,
-  setCurrentPage,
-  toggleFollowingProgress,
-  getUsers,
-})(AuthRedirectComponent);
 
 export default compose(
   connect(mapStateToProps, {
