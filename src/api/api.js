@@ -22,14 +22,14 @@ export const usersAPI = {
   },
   getProfile(userId) {
     console.warn('Obsolete method. Used profile.api object')
-    return  profileAPI.getProfile(userId)
+    return profileAPI.getProfile(userId)
   }  
 }
 
 
 export const profileAPI = {
   getProfile(userId) {
-    return  instance.get(`profile/${userId}`)
+    return instance.get(`profile/${userId}`)
         .then(response =>  response.data)
   },
   
@@ -48,6 +48,12 @@ export const profileAPI = {
 export const authAPI = {
   me(){
     return instance.get(`auth/me`).then(response => response.data)
+  },
+  login(email, password, rememberMe){
+    return instance.post('auth/login', {email, password, rememberMe}).then(response => response.data)
+  },
+  logout(){
+    return instance.delete('auth/login').then(response => response.data)
   }
 }
 
