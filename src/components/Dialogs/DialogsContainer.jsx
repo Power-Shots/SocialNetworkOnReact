@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { compose } from 'redux';
 import WithAuthRedirect from '../../hoc/WithAuthRedirect';
-import { sendMessage, updateNewMessageBody } from '../../redux/dialogsReducer';
+import { sendMessage } from '../../redux/dialogsReducer';
 import DialogItem from './DialogItem/DialogItem';
 import Dialogs from './Dialogs';
 import s from './Dialogs.module.css';
@@ -20,10 +20,8 @@ let mapStateToProps = (state) => {
 
 
 
-
 const DialogsContainer = compose(
   connect(mapStateToProps,{
-    updateNewMessageBody,
     sendMessage
   }),
   WithAuthRedirect
