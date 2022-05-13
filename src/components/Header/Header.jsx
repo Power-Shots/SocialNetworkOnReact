@@ -1,18 +1,23 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import logo from './../../assets/images/logo/logo.png';
-import s from './Header.module.css';
+import logo from "./../../assets/images/logo/logo.png";
+import s from "./Header.module.css";
 
-const Header = ({isAuth, login}) => {
+const Header = ({ isAuth, login, logout }) => {
+
+  console.log(isAuth)
   return (
     <header className={s.header}>
-      <img src={logo}/>
+      <img src={logo} />
       <div className={s.loginBlock}>
-        {
-          isAuth
-          ? <h3>{login}</h3>
-          : <NavLink to="login">Login</NavLink>
-        }
+        {isAuth ? (
+          <div>
+            <h3>{login}</h3>
+            <button onClick={() => logout()}>logout</button>
+          </div>
+        ) : (
+          <NavLink to="login">Login</NavLink>
+        )}
       </div>
     </header>
   );
